@@ -76,6 +76,18 @@ android {
     ndkVersion rootProject.ext.ndkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
+    
+    // 解决react-native-image-picker依赖Android SDK 35的问题
+    configurations.all {
+        resolutionStrategy {
+            // 强制所有依赖使用项目的SDK版本
+            force 'androidx.appcompat:appcompat:1.6.1'
+            force 'com.google.android.material:material:1.9.0'
+            force 'androidx.core:core:1.12.0'
+            force 'androidx.core:core-ktx:1.12.0'
+            force 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.2'
+        }
+    }
 
     namespace "com.maomao"
     defaultConfig {
@@ -84,6 +96,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        missingDimensionStrategy 'react-native-camera', 'general'
     }
     signingConfigs {
         debug {
