@@ -11,22 +11,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 // 引入主要屏幕组件
 import HomeScreen from '../screens/HomeScreen';
-// import CommunityScreen from '../screens/CommunityScreen';
-// import ShoppingScreen from '../screens/ShoppingScreen';
-// import PetMarketScreen from '../screens/PetMarketScreen';
-// import RescueMapScreen from '../screens/RescueMapScreen';
-// import ProfileScreen from '../screens/ProfileScreen';
-
-// 引入子屏幕组件
-// import PostDetailScreen from '../screens/PostDetailScreen';
-// import ProductDetailScreen from '../screens/ProductDetailScreen';
-// import PetDetailScreen from '../screens/PetDetailScreen';
-// import PetProfileScreen from '../screens/PetProfileScreen';
-import PetKnowledgeScreen from '../screens/PetKnowledgeScreen';
-// import ArticleDetailScreen from '../screens/ArticleDetailScreen';
-// import ExpertDetailScreen from '../screens/ExpertDetailScreen';
-// import QuestionDetailScreen from '../screens/QuestionDetailScreen';
-// import OrderScreen from '../screens/OrderScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -96,34 +80,12 @@ const MainTabNavigator = () => {
         component={HomeScreen}
         options={{ headerShown: false }}
       />
-      {/* <Tab.Screen
-        name="Community"
-        component={CommunityScreen}
-        options={{ headerShown: false }}
-      />
-      <Tab.Screen
-        name="Shopping"
-        component={ShoppingScreen}
-        options={{ headerShown: false }}
-      />
-      <Tab.Screen
-        name="PetMarket"
-        component={PetMarketScreen}
-        options={{ headerShown: false }}
-      />
-      <Tab.Screen
-        name="RescueMap"
-        component={RescueMapScreen}
-        options={{ headerShown: false }}
-      />
-      <Tab.Screen
-        name="Profile"
-        component={ProfileScreen}
-        options={{ headerShown: false }}
-      /> */}
     </Tab.Navigator>
   );
 };
+
+// 导入详情页组件
+import PostDetailScreen from '../screens/PostDetailScreen';
 
 // 创建主应用导航器
 const AppNavigator = () => {
@@ -135,114 +97,15 @@ const AppNavigator = () => {
       <Stack.Screen name="Main" component={MainTabNavigator} />
 
       {/* 社区相关子屏幕 */}
-      {/* <Stack.Screen
+      <Stack.Screen
         name="PostDetail"
         component={PostDetailScreen}
-        options={({ navigation, route }) => ({
-          headerShown: true,
+        options={({ navigation }) => ({
+          headerShown: false,
           headerTitle: '帖子详情',
-          headerLeft: () => (
-            <TouchableOpacity
-              style={styles.backButton}
-              onPress={() => navigation.goBack()}
-            >
-              <Icon name="arrow-back" size={20} color="#000" />
-            </TouchableOpacity>
-          ),
-        })}
-      /> */}
-
-      {/* 商城相关子屏幕 */}
-      {/* <Stack.Screen
-        name="ProductDetail"
-        component={ProductDetailScreen}
-        options={({ navigation }) => ({
-          headerShown: true,
-          headerTitle: '商品详情',
-          headerLeft: () => (
-            <TouchableOpacity
-              style={styles.backButton}
-              onPress={() => navigation.goBack()}
-            >
-              <Icon name="arrow-back" size={20} color="#000" />
-            </TouchableOpacity>
-          ),
-        })}
-      /> */}
-
-      {/* 宠物市场相关子屏幕 */}
-      {/* <Stack.Screen
-        name="PetDetail"
-        component={PetDetailScreen}
-        options={({ navigation }) => ({
-          headerShown: true,
-          headerTitle: '宠物详情',
-          headerLeft: generateHeaderLeft(navigation),
-        })}
-      /> */}
-
-      {/* 个人中心相关子屏幕 */}
-      {/* <Stack.Screen
-        name="PetProfile"
-        component={PetProfileScreen}
-        options={({ navigation }) => ({
-          headerShown: true,
-          headerTitle: '宠物档案',
-          headerLeft: generateHeaderLeft(navigation),
-        })}
-      /> */}
-
-      {/* 知识科普相关子屏幕 */}
-      <Stack.Screen
-        name="PetKnowledge"
-        component={PetKnowledgeScreen}
-        options={({ navigation }) => ({
-          headerShown: true,
-          headerTitle: '宠物知识',
           headerLeft: generateHeaderLeft(navigation),
         })}
       />
-
-      {/* <Stack.Screen
-        name="ArticleDetail"
-        component={ArticleDetailScreen}
-        options={({ navigation }) => ({
-          headerShown: true,
-          headerTitle: '文章详情',
-          headerLeft: generateHeaderLeft(navigation),
-        })}
-      /> */}
-
-      {/* <Stack.Screen
-        name="ExpertDetail"
-        component={ExpertDetailScreen}
-        options={({ navigation }) => ({
-          headerShown: true,
-          headerTitle: '专家详情',
-          headerLeft: generateHeaderLeft(navigation),
-        })}
-      /> */}
-
-      {/* <Stack.Screen
-        name="QuestionDetail"
-        component={QuestionDetailScreen}
-        options={({ navigation }) => ({
-          headerShown: true,
-          headerTitle: '问答详情',
-          headerLeft: generateHeaderLeft(navigation),
-        })}
-      /> */}
-
-      {/* 订单屏幕 */}
-      {/* <Stack.Screen
-        name="Order"
-        component={OrderScreen}
-        options={({ navigation }) => ({
-          headerShown: true,
-          headerTitle: '我的订单',
-          headerLeft: generateHeaderLeft(navigation),
-        })}
-      /> */}
     </Stack.Navigator>
   );
 };
